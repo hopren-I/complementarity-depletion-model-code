@@ -1,0 +1,21 @@
+{
+  "results/table2_summary.csv": "501b8c99ad5bb38e37f8d877e4e30589c6c2eb0fffb418a6e54931e2944da7e1",
+  "results/table3_summary.csv": "c9446e4bb6105ecd6b9c15675f45cde06d9b921dee796972fc8caffe35664f57",
+  "window_results/table4_values.csv": "5c9099a1f2061eccc8ff836b5919ef40e0e0279e699f705fc57b91307c0b42f4",
+  "coverage_results/table5_summary.csv": "fd37905ee4afcd23e1f3a5c6047f6e42f3b969b611579865811d200cb4c698c1",
+  "secant_bridge_results/comparison_summary.csv": "378cdcb4cccc4cba126dd51d639bd72b45b6d21dd50b76b8a9f78e028df474e2",
+  "secant_bridge_results/cross_endpoint_summary.csv": "e2c79cbf962d8ba4666aff6b98473c6fd0fc8b8e0007df8d623bcf960d2714df",
+  "validation/bounds_baseline.csv": "cc4ea672bc5b35e750ab78bef36415f55354fc08de2ff9d735cdfef4e879b09d",
+  "validation/convergence.csv": "e717bdda06109377a9baf0027b8f1a9f339afec64a15b84cde0286a45c1d5718",
+  "validation/bayes_repetitions.csv": "1f1e3fe158e273d0016032ab26130636395e794fddd3cc9236c2ace6fffd0c10",
+  "validation/stress_repetitions.csv": "6a47429af7c7d5e040522c4c41ddca9d484161ef50c4a7e50059562c2291afa6",
+  "validation/posterior_medians.csv": "0806e78865982c0f78cafbad6f6cc29a9e583b802713dd6b9a08ef668c7ccb3c",
+  "validation/window_medians.csv": "678b7dfa8d6b54001afefd5c0806673d9c0a81272cf7bb21533d01c55afa4bb6",
+  "validation/film_points.csv": "ae8cde9b5221b55ba2f92c936b5de041f2ecc49aa4a8e74e4e4bcd3b0a011a32",
+  "validation/sensitivity.csv": "7cefffe7d7bb58f6ac7e37eacf06e0061306d93448ff827ffe2512ac7ae7bf76",
+  "insb_reference_fits.csv": "dd0ea0d645b8ad30d6aa959f809590fe7d4d6fda312e2dd65987386214d975f2",
+  "insb_summary.csv": "058b57f9a5043e6b3153db9baf1ca4436e36f0f13b86f0f11c79c8a2a080c98d",
+  "insb_target_refit_summary.csv": "f34eca8657cc771df0c0b44727d4cbc47c1b2761822718fa2881db85dbb9142f",
+  "insb_paired_low_loss_summary.csv": "75b4756f50f02584fc8a0e939ce3894bb139f474ff895b23e41029502fbb564d",
+  "insb_table8_values.csv": "e1a6dc41c33797fc1a1ba086583b1084f1320cd43f04214eb92511b913a35ea7"
+}

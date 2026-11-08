@@ -1,0 +1,45 @@
+Experiment and manuscript output map
+===================================
+Figure 1: plot_numerical_bounds.py + bounds_panel.py
+  Inputs: data/validation/bounds_baseline.csv and convergence.csv
+  Calculation: minimal_validation.py, numerical_bounds.py, validation_analysis.py
+Figure 2: plot_parameter_recovery.py
+  Inputs: data/validation/bayes_repetitions.csv and stress_repetitions.csv
+Figure 3: plot_calibration_merged.py
+  Inputs: Si digitizations/posterior and data/results/table2_summary.csv
+Figure 4: plot_gan_merged.py
+  Inputs: GaN digitizations, posterior summaries and data/validation/film_points.csv
+Figure 5: plot_insb_diagnostics.py
+  Inputs: raw InSb archive, reference fits, prediction points and device scores
+
+Figures are generated as figure/en/figure1.png through figure5.png, with
+corresponding Chinese versions under figure/zh/.
+
+Table I: theoretical identifiability relations; no numerical calculation
+Table II: data/validation/bounds_baseline.csv and convergence.csv
+Table III: data/results/posterior_draws.npz, data/window_results/posterior_draws.npz,
+  data/validation/posterior_medians.csv, data/validation/sensitivity.csv
+Table IV: data/secant_bridge_results/comparison_summary.csv
+Table V: tables/insb_prediction_summary_en.tex and _zh.tex, generated from
+  data/insb_table8_values.csv and data/insb_target_refit_summary.csv
+
+Key commands and modules
+------------------------
+reproduce.py: full experiment pipeline; --mode figures or --mode verify after a run
+calibrate_baseline.py: Si reference and four-film area calibration
+recalculate_table3.py: joint GaN posterior sampling
+recalculate_window_results.py: four fitting windows and sampling stability
+recalculate_coverage.py: fit membership and credible/predictive intervals
+recalculate_secant_bridge.py: endpoint/secant comparisons and energy benchmark
+run_validation.py: deterministic bounds and three synthetic noise scenarios
+insb_io.py + insb_stats.py: raw archive reader and regression/prediction
+insb_analyze.py + insb_extended.py: primary and cross-condition InSb analyses
+prepare_table3_data.py: extraction of three GaN partial-depletion curves
+check_digitization.py: re-extraction in a temporary directory and comparison
+audit_n1_sampling.py: digitization-cell and marker sensitivity
+verify_results.py + verify_secant_bridge.py: numerical and data consistency checks
+compare_reference.py: comparison with fixed numerical reference CSVs
+build_figures.py: generate all five bilingual figures
+
+Internal table numbers in calculation filenames are historical identifiers;
+they need not equal the table numbers in the paper.

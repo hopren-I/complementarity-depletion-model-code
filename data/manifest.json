@@ -1,0 +1,149 @@
+{
+  "version": "table3_markers_20261031",
+  "scope": "three partial-depletion series for Table 3 only",
+  "source_pdf": "data/source_evidence/chandrasekar2015.pdf",
+  "source_pdf_sha256": "2e667be098e2cff2cbeb1e71faa178ef1ca792c99832ffcbc7a710851c1261bb",
+  "source_raster": "data/digitization/source_figure4.png",
+  "source_raster_sha256": "a367e29e1d53d57e80482ebf698121ac1e13915a00e750429a1d4028eca5a83d",
+  "source_raster_size": [
+    1384,
+    461
+  ],
+  "source_pdf_page_index": 4,
+  "calibration": {
+    "b": {
+      "x_affine": [
+        0.01904753266425095,
+        -16.109464356170708
+      ],
+      "y_affine": [
+        -1.2145682627794646e-12,
+        6.54384575037699e-10
+      ]
+    },
+    "c": {
+      "x_affine": [
+        0.006389754617091059,
+        -8.52287110252187
+      ],
+      "y_affine": [
+        -4.850422963374033e-12,
+        2.2158941428844505e-09
+      ]
+    }
+  },
+  "primary_window_V": [
+    -2.5,
+    -1.0
+  ],
+  "endpoint_rule": "closed interval with half a source x pixel tolerance; preserve calibrated coordinates",
+  "n1_extraction_rule": "one colored-pixel centroid per 0.1 V cell, centers -5..0 V fixed from axis ticks and visible marker spacing; overlapping marks are reconstructed cells",
+  "n2_extraction_rule": "one unweighted colored-pixel centroid per isolated marker component",
+  "fit_results_used_for_extraction": false,
+  "series": {
+    "n1_500nm": {
+      "panel": "b",
+      "method": "overlapping_marker_cell_centroid",
+      "full_observation_count": 51,
+      "primary_observation_count": 16,
+      "published_Vbi_V": 1.03,
+      "half_pixel_endpoint_tolerance_V": 0.009523766332125474,
+      "primary_observation_ids": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "actual_primary_range_V": [
+        -2.500330673298997,
+        -1.0047709534197065
+      ],
+      "full_csv": "data/gan_n1_500nm_cv.csv",
+      "primary_csv": "data/gan_n1_500nm_primary_cv.csv",
+      "details_csv": "data/gan_n1_500nm_marker_details.csv",
+      "full_csv_sha256": "bf2d8332255ae0d74bc2b825e28c090f987d180bebc8a9438d2d3b012431c2b2",
+      "primary_csv_sha256": "974dc8676f203baf094fd9f74a78a4279f57ebbd05fcb1ceb96a70ae94fb0451",
+      "details_csv_sha256": "b6cb554495baa0fcd1323b4ee1a5491036ee28d9b017f382f46bada4fbf15ffc"
+    },
+    "n1_750nm": {
+      "panel": "b",
+      "method": "overlapping_marker_cell_centroid",
+      "full_observation_count": 51,
+      "primary_observation_count": 16,
+      "published_Vbi_V": 1.05,
+      "half_pixel_endpoint_tolerance_V": 0.009523766332125474,
+      "primary_observation_ids": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "actual_primary_range_V": [
+        -2.5000022675634046,
+        -1.0028662001532798
+      ],
+      "full_csv": "data/gan_n1_750nm_cv.csv",
+      "primary_csv": "data/gan_n1_750nm_primary_cv.csv",
+      "details_csv": "data/gan_n1_750nm_marker_details.csv",
+      "full_csv_sha256": "93dcaea349aa7baddedd91a43c21bb456d62079945be7e76dfc15e24a4c54be9",
+      "primary_csv_sha256": "de1dc7c3d31597b4de9e094354d278c1477c7708ffe79caa360e6e7ad686bcda",
+      "details_csv_sha256": "b1162db0b18d1c055b30b094ab3a5a7bc6d52a933001f933b4e3a695ea37f36e"
+    },
+    "n2_750nm": {
+      "panel": "c",
+      "method": "isolated_marker_centroid",
+      "full_observation_count": 21,
+      "primary_observation_count": 11,
+      "published_Vbi_V": 1.8,
+      "half_pixel_endpoint_tolerance_V": 0.0031948773085455295,
+      "primary_observation_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "actual_primary_range_V": [
+        -1.9976891861852426,
+        -0.9989350408971482
+      ],
+      "full_csv": "data/gan_n2_750nm_cv.csv",
+      "primary_csv": "data/gan_n2_750nm_primary_cv.csv",
+      "details_csv": "data/gan_n2_750nm_marker_details.csv",
+      "full_csv_sha256": "604c75237a9881b45a79886e1ddc9fe7e68936a0dc3fd33a29c459eb648abd4d",
+      "primary_csv_sha256": "41a3fb28fbabece45420bb3f37042e6691982b6524845ceac67d451c4f1ca8c3",
+      "details_csv_sha256": "09462a114457c2c68544cc55e5bb42274897b681ca9ee28dbaaf3bedaf595c71"
+    }
+  },
+  "preparation_script_sha256": "05778cad6fd630f32206dff7880387ca2892dcb1afc4c12ef5a885a49d38a520"
+}

@@ -1,0 +1,7 @@
+This dataset contains the x-ray photoelectron spectroscopy (XPS) and electrical characterisation data used in the journal paper 'Effect of HCl cleaning on InSb–Al2O3 MOS capacitors'.
+
+The XPS data includes VAMAS files that contain the measured XPS data and modelled (fitted) components - one file for the samples treated in the HCl-water solution and a separate file for the sample treated in the HCl-IPA solution. In each file, the spectra taken after the subsequent annealing steps are included within the same VAMAS files. The XPS data folder also includes a Microsoft Excel spreadsheet, summarising the changes in the HCl-IPA sample after annealing.
+
+The electrical characterisation includes the raw measurement data and two Microsoft Excel files - one containing the data extracted from the raw capacitance-voltage data and one summarising the sample yield. The raw data includes, for each device, capacitance-voltage data, corresponding conductance-voltage data and two additional capacitance-voltage and conductance-voltage data files with reverse-direction voltage sweeps appended (where performed). For the control sample, some current-voltage data is also included.
+
+Any further enquiries regarding this dataset should be directed to o.vavasour@warwick.ac.uk

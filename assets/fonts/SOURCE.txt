@@ -1,0 +1,5 @@
+Fandol 0.3: unmodified FandolHei-Regular.otf from TeX Live.
+Source: https://ctan.org/pkg/fandol
+Upstream: https://mirrors.ctan.org/fonts/fandol/
+License and font exception: README.fandol and COPYING.fandol.
+Used for reproducible Chinese Matplotlib labels.

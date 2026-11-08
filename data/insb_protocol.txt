@@ -1,0 +1,125 @@
+InSb MOS independent-source applicability diagnostics, current manuscript revision 3 — 2026-11-04
+
+Source and licence
+Vavasour et al., Effect of HCl cleaning on InSb–Al2O3 MOS capacitors,
+Semiconductor Science and Technology 34 (2019) 035032,
+DOI: https://doi.org/10.1088/1361-6641/ab0331
+Public dataset: https://wrap.warwick.ac.uk/id/eprint/114894/ ; CC BY 4.0.
+Author ZIP retained verbatim as insb_source_data.zip; original README as insb_source_readme.txt.
+Archive SHA256: 2e4f514e8aea476f331194e4c91cdd1139e1c9a6a595961ba45010c3fd331b77.
+This is a reanalysis of published raw measurements, not newly acquired measurements.
+
+Primary records and raw CSV
+The filename-defined primary cohort contains 159 devices in five process groups:
+Control 38; HCl-IPA 200 36; HCl-IPA 250 33; HCl-Water 200 26; HCl-Water 250 26.
+The 200/250 suffixes label processing temperatures, not the 80 K main measurement temperature.
+Sixteen additional HR-labelled C files and five CVT temperature-series C files are outside
+this cohort; all remain in the original ZIP. The supplied README does not define HR,
+so no expansion of that abbreviation is assumed. These records are not counted as additional
+devices in the primary cohort; their independence is not assumed. File audit records all included/excluded C files.
+
+insb_raw_measurements.csv.gz contains ALL primary forward C/G values and the two active reverse
+C/G columns: 1,104,026 rows. Raw invalid/negative/overflow values remain present; no smoothing.
+Each row includes device, process group, direction, original 1-based value-column index,
+frequency label, label-ambiguity flag, 0-based within-sweep acquisition index, voltage in V,
+capacitance in F, conductance in S, and validity flags. Forward acquisition index increases
+with gate voltage; reverse acquisition index increases as gate voltage decreases.
+Source file names are mapped by insb_device_inventory.csv. For reverse files, instrument
+headers are incomplete; their forward prefixes were matched exactly with the forward C/G
+files, allowing the original column positions to identify 5 kHz and 2 MHz reverse measurements.
+Zero placeholders at inactive reverse frequencies are not measurements and are not exported.
+Eight files contain duplicate 1 MHz frequency labels. Both ambiguous columns are preserved
+in raw CSV, flagged, and excluded from frequency comparisons. No replacement frequency is guessed.
+C validity: finite, positive, <1e30 (instrument overflow is 9.9e37). G flag: finite,
+nonnegative and <1e30. G is retained even when flagged invalid. Primary comparisons do not
+exclude devices by R2, slope sign, or the loss threshold.
+
+Reference, windows and inference
+Reference: 2 MHz forward. Cref is median valid C at 4<=V<=5; at least 10 such points needed.
+Cref is a normalization, not a measured exact oxide capacitance. Work on y=(Cref/C)^2.
+A candidate window is the longest contiguous reference interval between two C/Cref thresholds;
+minimum 15 points. Interleaved test points have within-window position i mod 3 == 2; all other
+points train the reference line. Other conditions are evaluated at exactly these observed
+voltages without interpolation; at least five valid paired test points required.
+Separate contiguous test uses the last 25% of the reference window, with first 75% for training.
+
+Full regression formulas and thresholds are in insb_analysis_spec.json and insb_stats.py.
+Conditional predictive interval includes observation error: Student-t df n-2 with scale
+s sqrt(1+x'(X'X)^-1 x). This assumes iid Gaussian errors in y. It is distinct from the
+paper's GaN cross-endpoint secant interval; the two empirical inclusion metrics are not
+interchangeable. Nonpositive mean y predictions are recorded as invalid C predictions;
+the C prediction is defined as Cref/sqrt(mu_y) only when mu_y>0. It is the transformed
+regression centre, not the mean of a transformed posterior distribution. No prediction is
+clipped or replaced. C-MAPE is conditional on valid C predictions; failures remain explicitly
+counted and all test points remain in y-space error and predictive-inclusion summaries.
+All source estimates are retained, including nonnegative slopes; Vstar=-a/b is only an
+apparent intercept. No MOS physical N, Vbi, precise VFB, or finite-film full depletion is inferred.
+
+Exploration history and sensitivity
+Initial thresholds 0.30–0.70, 0.20–0.60, 0.40–0.80, 0.20–0.80 showed substantial curvature.
+The exploratory phase then examined 0.04–0.08, 0.05–0.10, 0.05–0.15, 0.10–0.20,
+0.10–0.30, 0.20–0.40. ALL ten windows remain in output. The displayed 0.04–0.08 window
+was selected during exploration; it is not a preregistered independent validation window.
+It has 127 devices: 9/159 lack sufficient normalization samples and 23/150 lack 15 window points.
+Three of 127 fitted slopes are nonnegative and remain in the main descriptive summary.
+The five displayed windows and four principal conditions have a fixed common cohort of 105.
+The 55-device R2>0.99/negative-slope stratum is a post hoc sensitivity check, not the main cohort.
+
+Low-loss: ratio G/(2 pi f C). Reference ratio is the median over its full selected window;
+target ratio is the median over valid matched test points. Both ratios in [0,0.1] give 31
+forward/reverse paired devices. Recalculate both forward and reverse summaries on these
+same 31 devices. This diagnostic threshold is not a correction for series resistance or traps.
+The half-capacitance shift uses unique upward crossings of 0.5 Cref on voltage-sorted curves;
+it is not the paper's flatband-defined hysteresis voltage and should not be called its replication.
+
+New target-refit control
+For each target condition, fit its own y values on EXACTLY the reference-defined training
+voltages, and predict EXACTLY the same target-held-out voltages as the frozen model.
+Window, Cref, and membership are fixed by reference; targets are not used for reselecting the
+window. Train/test sets are disjoint. The own-threshold-window parameter fits archived in
+insb_condition_refits.csv are a separate descriptive diagnostic, not this held-out comparison.
+The same-voltage control covers all 127 devices for the four principal conditions.
+Low reverse error after refitting can reflect an approximately flat target segment; it is
+not proof of restored depletion physics or recovered physical parameters.
+The target-refit summary explicitly labels C-MAPE as mape_valid_C, and records valid and
+invalid prediction counts. Full-test-set y errors use every valid observed target C value:
+  y_rmse_all = sqrt(mean_i[(mu_y_i-y_i)^2]);
+  y_relative_rmse_all = y_rmse_all / mean_i(y_i);
+  y_mae_all = mean_i(abs(mu_y_i-y_i)).
+The denominator uses the same device's observed held-out y values. These are per-device
+metrics, summarized by median and quartiles; no test point is dropped for mu_y<=0.
+For 100 kHz, target refits yield 113/3061 undefined C predictions in 60/127 devices;
+for 5 kHz, 171/3060 in 47/127 devices. The respective valid-only C-MAPE medians are
+10.95% and 19.05%. They must not be described as unconditional improvements in C prediction.
+The full-point relative y RMSE medians are 0.19378 and 0.31708 versus frozen-reference
+0.94840 and 31.12343. Reverse refits have no undefined C predictions and a full-point
+relative y RMSE median of 0.00267, but the nearly flat target response limits interpretation.
+All five main table rows and both low-loss paired rows have zero undefined C predictions;
+the complete exploratory-window CSV retains failures in other windows instead of hiding them.
+
+Interpretation
+Per-device mean absolute relative C error is averaged over points where C prediction is defined; medians and
+quartiles are then taken across devices. Predictive inclusion is likewise per-device then
+summarized, not pooled as independent voltage samples. A median 0% is not universal failure.
+Whole-curve reference normalization/window selection, smooth voltage correlation, process/die
+clustering, unequal process-group eligibility and lack of a physically complete MOS correction
+limit confirmatory inference. No unique mechanism is attributed: interface traps, dielectric
+response, series resistance, measurement history and instrumentation can coexist.
+
+Files and reproduction
+code/insb_reproduce.py runs insb_analyze.py, insb_extended.py, insb_figures.py in order.
+Only new insb-prefixed data/code/log files, fig_insb_r3_* figures and generated table8_* files
+are written. Existing project structure and original data/figures are preserved.
+Required libraries: numpy, pandas, matplotlib. Exact new-work validation environment is in
+insb_environment.json; existing core project requirements are not replaced.
+Run from any directory with the required environment:
+  python /absolute/path/to/project/code/insb_reproduce.py
+The wrapper disables bytecode and directs MPLCONFIGDIR, TMPDIR and XDG_CACHE_HOME to
+existing qa; no new directories are needed.
+insb_extended.py independently checks centered OLS, Student-t quantiles, all raw CSV values
+against ZIP, all saved prediction observations, and 508 target-refit score recounts.
+insb_figures.py generates bilingual Figure 8 (PNG/PDF/SVG) with normal black text and Table 8 (TeX/CSV).
+Main Figure 8 uses the median-reference-R2 eligible device as representative, all 127 eligible
+devices for error distributions, and the identical 31-device low-loss pairing; boxplot outlier
+markers are omitted but all device values contribute and remain in CSV. Curves use separate
+colors, all figure labels are black; the median emphasis line is black. Sensitivity results remain CSV in existing data directory.

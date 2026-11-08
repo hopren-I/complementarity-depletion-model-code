@@ -1,0 +1,52 @@
+{
+  "Si_standard": {
+    "Vbi_V": [
+      0.3786577604951541,
+      0.37121588975808006,
+      0.38614228650937316
+    ],
+    "N_cm3": [
+      741627710998244.4,
+      740098735773442.2,
+      743167539749832.5
+    ],
+    "reported": {
+      "Vbi_V": "0.37-0.38",
+      "N_cm3": 766000000000000.0
+    }
+  },
+  "area_model": {
+    "source": "unchanged calibrate_planA.py flat-film inputs and rule",
+    "mean_cm2": 0.004347789392270639,
+    "sd_cm2": 0.0003317629254602224,
+    "relative_sd_pct": 7.630611686251866,
+    "distribution": "normal(mean, sd), clipped at 0.2*mean as in original code",
+    "clipped_draw_count": 0,
+    "films": [
+      {
+        "source": "data/gan_u_500nm_cv.csv",
+        "thickness_nm": 500,
+        "median_capacitance_F": 8.40411e-11,
+        "area_cm2": 0.004477206619197108
+      },
+      {
+        "source": "data/gan_u_1000nm_cv.csv",
+        "thickness_nm": 1000,
+        "median_capacitance_F": 4.46457e-11,
+        "area_cm2": 0.004756911167480871
+      },
+      {
+        "source": "data/gan_n1_100nm_cv.csv",
+        "thickness_nm": 100,
+        "median_capacitance_F": 3.84946e-10,
+        "area_cm2": 0.00410152360983721
+      },
+      {
+        "source": "data/gan_n2_100nm_cv.csv",
+        "thickness_nm": 100,
+        "median_capacitance_F": 3.80628e-10,
+        "area_cm2": 0.004055516172567366
+      }
+    ]
+  }
+}

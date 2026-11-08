@@ -1,0 +1,20 @@
+{
+  "en": {
+    "figures": {
+      "figure3.png": "3681f98e51e320414c8a7b12bfa56a890033635dedc8169773e4e3fdeb72f3e8",
+      "figure2.png": "eb793a091582b6eea6fc897f17792a627c6227746a6e1869dd44e340d57c4eeb",
+      "figure1.png": "9e72e9b72a93b8e5665144c7daea6ffb0fb58ecce734f29ef60a87f1b06eb5e3",
+      "figure5.png": "9aeb67c3a07e182b87b6ff7baf02be77d8c38603598b490dce611a28f237a3d5",
+      "figure4.png": "7e7d52c7ead16bca53462f95772b093c6d1c6b25f975fc26b31190973adadb1b"
+    }
+  },
+  "zh": {
+    "figures": {
+      "figure3.png": "ae10f6bfc77259b5de514389b44f7b1e8e3652d53a57087783ce879218f2a579",
+      "figure2.png": "f138f4543b2132ac8ce3dfaeb1a2572c5ddaffd73aeaaa470e614f3f3123913c",
+      "figure1.png": "1b8469009ad888b705f8db789fcf37bce86a1b87c7f3b1b1bfd93fb993a64562",
+      "figure5.png": "1913b4265a45d1c253238d97b7d17b074e99fc1a50d1a5ee1a963c4ba678d582",
+      "figure4.png": "27af8be690fe0216ea5584a8054a8f0d974b998f1292bbc4ea9aa9afbd2e3626"
+    }
+  }
+}

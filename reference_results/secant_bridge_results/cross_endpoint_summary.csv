@@ -1,0 +1,5 @@
+series,n_test_points,inside_with_remainder,coverage_with_remainder,inside_without_remainder,coverage_without_remainder,mean_relative_halfwidth,mean_relative_halfwidth_without_remainder,mean_remainder_relative_to_C_median,maximum_relative_halfwidth,negative_lower_bound_count,n_primary_fit_points_in_test,n_outside_primary_fit,inside_outside_primary_with_remainder,inside_outside_primary_without_remainder
+n1_500nm,51,51,1.0,51,1.0,0.11082026506826079,0.09651623445674688,0.014304030611513885,0.21739154546150474,0,16,35,35,35
+n1_750nm,51,51,1.0,51,1.0,0.21613986623834003,0.201787710048934,0.014352156189406053,0.2850766569871962,0,16,35,35,35
+n2_750nm,21,21,1.0,21,1.0,0.2638416873837399,0.25614823398416775,0.007693453399572158,0.2988103008271006,0,11,10,10,10
+pooled,123,123,1.0,123,1.0,0.1806149766804486,0.16741962669477436,0.013195349985674242,0.2988103008271006,0,43,80,80,80
